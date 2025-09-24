@@ -1,5 +1,5 @@
 from django.urls import path
-from main.views import login_user, logout_user, register, show_json_by_id, show_main, create_news, show_news, show_json, show_xml, show_xml_by_id
+from main.views import delete_news, edit_news, login_user, logout_user, register, show_json_by_id, show_main, create_news, show_news, show_json, show_xml, show_xml_by_id
 
 # namespace unik sbg pembeda dengan aplikasi lain pada URL
 app_name = 'main'
@@ -15,5 +15,6 @@ urlpatterns = [
     path('register/', register, name='register'),
     path('login/', login_user, name='login'),
     path('logout/', logout_user, name='logout'),
-
+    path('news/<uuid:id>/edit', edit_news, name='edit_news'),
+    path('news/<uuid:id>/delete', delete_news, name='delete_news'),
 ]
