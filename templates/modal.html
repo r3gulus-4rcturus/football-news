@@ -1,6 +1,6 @@
 <!-- Modal -->
 <div id="crudModal" class="hidden fixed inset-0 z-50 w-full flex items-center justify-center bg-gray-800 bg-opacity-50">
-  <div id="crudModalContent" class="bg-white rounded-lg shadow-lg w-5/6 sm:w-3/5 md:w-1/2 lg:w-2/5 xl:w-1/3 max-h-screen overflow-y-auto">
+  <div id="crudModalContent" class="opacity-0 scale-0 transition-all duration-3000 bg-white rounded-lg shadow-lg w-5/6 sm:w-3/5 md:w-1/2 lg:w-2/5 xl:w-1/3 max-h-screen overflow-y-auto">
     <!-- Modal header -->
     <div class="flex items-center justify-between p-4 border-b">
       <div>
@@ -66,7 +66,7 @@
 
       modal.classList.remove('hidden'); 
       setTimeout(() => {
-        modalContent.classList.remove('opacity-0', 'scale-95');
+        modalContent.classList.remove('opacity-0', 'scale-0');
         modalContent.classList.add('opacity-100', 'scale-100');
       }, 50); 
   }
@@ -75,12 +75,14 @@
       const modal = document.getElementById('crudModal');
       const modalContent = document.getElementById('crudModalContent');
 
-      modalContent.classList.remove('opacity-100', 'scale-100');
-      modalContent.classList.add('opacity-0', 'scale-95');
-
+      
       setTimeout(() => {
-        modal.classList.add('hidden');
-      }, 150); 
+          modalContent.classList.remove('opacity-100', 'scale-100');
+          modalContent.classList.add('opacity-0', 'scale-0');
+        }, 50); 
+        setTimeout(() => {
+          modal.classList.add('hidden');
+        }, 300); 
   }
 
    async function addNewsEntry() {
