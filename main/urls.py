@@ -1,5 +1,5 @@
 from django.urls import path
-from main.views import add_news_entry_ajax, delete_news, edit_news, login_user, logout_user, register, show_json_by_id, show_main, create_news, show_news, show_json, show_xml, show_xml_by_id
+from main.views import proxy_image, create_news_flutter, add_news_entry_ajax, delete_news, edit_news, login_user, logout_user, register, show_json_by_id, show_main, create_news, show_news, show_json, show_xml, show_xml_by_id
 
 # namespace unik sbg pembeda dengan aplikasi lain pada URL
 app_name = 'main'
@@ -18,4 +18,6 @@ urlpatterns = [
     path('news/<uuid:id>/edit', edit_news, name='edit_news'),
     path('news/<uuid:id>/delete', delete_news, name='delete_news'),
     path('create-news-ajax', add_news_entry_ajax, name='add_news_entry_ajax'),
+    path('proxy-image/', proxy_image, name='proxy_image'),
+    path('create-flutter/', create_news_flutter, name='create_news_flutter'),
 ]
